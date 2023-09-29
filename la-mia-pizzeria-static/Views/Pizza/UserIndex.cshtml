@@ -17,18 +17,17 @@
 else
 {
 
-    <h1 class="text-danger display-2 py-4 fw-bold">Benvenuto nella mia pizzeria</h1>
-
-    <div class="album bg-warning py-5 bg-body-tertiary">
+    <div class="album py-4 rounded-5">
         <div class="container">
             <div class="row my-3">
                 <div class="col-12">
-                    <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasManagePizza" aria-controls="offcanvasManagePizza">
+                    <h1 class="text-danger display-2 text-center mb-5 fw-bold">Benvenuto nel sito della mia pizzeria</h1>
+                    <button class="btn btn-success mb-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasManagePizza" aria-controls="offcanvasManagePizza">
                         CARRELLO
                     </button>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 rounded-5">
                 
                 @foreach (Pizza pizza in Model)
                 {

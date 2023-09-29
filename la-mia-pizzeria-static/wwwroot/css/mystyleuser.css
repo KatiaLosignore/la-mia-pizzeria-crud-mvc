@@ -1,23 +1,37 @@
 ﻿* {
     box-sizing: border-box;
-    margin: 0;
+   
     padding: 0;
 }
 
 body {
     background-image: url('/img/background.jpg');
-    opacity: 1;
-    height: 100vh;
-    width: 100vw;
+    background-position: initial;
     background-repeat: no-repeat;
+    margin-top: 60px;
+}
+
+.album {
+    background-color: rgb(255,206,85);
 }
 
 .card {
-    height: 620px;
+    height: 600px;
 }
 
 .card-pizza {
     position: relative;
+}
+
+.card-pizza {
+    display:block;
+    transform: scale(1);
+    transition: all .2s linear;
+}
+
+.card-pizza:hover {
+    transform: scale(1.1);
+    z-index: 3;
 }
 
 .button-details {
