@@ -6,7 +6,23 @@
 
 body {
     background-image: url('/img/background.jpg');
+    opacity: 1;
     height: 100vh;
-    background-size: cover;
+    width: 100vw;
     background-repeat: no-repeat;
 }
+
+.card {
+    height: 620px;
+}
+
+.card-pizza {
+    position: relative;
+}
+
+.button-details {
+    position: absolute;
+    bottom: 40px;
+    left: 100px;
+}
+

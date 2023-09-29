@@ -34,5 +34,15 @@ namespace la_mia_pizzeria_static.Controllers
                 }
             }
         }
+
+        public IActionResult UserIndex()
+        {
+            using (PizzaContext db = new PizzaContext())
+            {
+                List<Pizza> pizzas = db.Pizzas.ToList<Pizza>();
+
+                return View("UserIndex", pizzas);
+            }
+        }
     }
 }
