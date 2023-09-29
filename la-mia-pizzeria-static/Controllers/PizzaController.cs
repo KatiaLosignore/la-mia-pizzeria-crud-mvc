@@ -17,5 +17,22 @@ namespace la_mia_pizzeria_static.Controllers
 
 
         }
+
+        public IActionResult Details(int id)
+        {
+            using (PizzaContext db = new PizzaContext())
+            {
+                Pizza? foundedElement = db.Pizzas.Where(element => element.Id == id).FirstOrDefault();
+
+                if (foundedElement == null)
+                {
+                    return NotFound($"La pizza con {id} non è stata trovata!");
+                }
+                else
+                {
+                    return View("Details", foundedElement);
+                }
+            }
+        }
     }
 }
