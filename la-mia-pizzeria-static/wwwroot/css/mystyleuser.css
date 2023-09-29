@@ -1,0 +1,12 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('/img/background.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

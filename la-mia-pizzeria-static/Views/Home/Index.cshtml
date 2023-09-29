@@ -1,0 +1,110 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@section Style{ 
+    <link rel="stylesheet" href="~/css/mystyle.css" />
+}
+
+<div class="row">
+    <div class="col-12">
+        <a class="btn btn-secondary mt-3" href="@Url.Action("UserIndex", "Home")" role="button"><b>Pagina Utente</b></a>
+
+        <h1 class="py-4 fw-bold">La mia pizzeria</h1>
+
+        <table class="table">
+            <thead>
+                <tr class="mt-5">
+                    <th scope="col">ID</th>
+                    <th scope="col">Immagine</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Descrizione</th>
+                    <th scope="col">Prezzo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>
+                        <img src="~/img/margherita.webp" alt="Immagine pizza margherita" />
+                    </td>
+                    <td>Pizza Margherita</td>
+                    <td>La pizza Margherita è la tipica pizza, condita con pomodoro, mozzarella, basilico fresco, sale e olio; è, assieme alla pizza marinara, la più popolare pizza italiana. per l'impasto: farina di grano tenero (tipo 0 o 00, o una miscela di entrambi), lievito naturale o lievito di birra, sale e acqua.</td>
+                    <td>€ 6,50</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>
+                        <img src="~/img/pizza_quattro_stagioni.jpg" alt="Immagine pizza quattro stagioni" />
+                    </td>
+                    <td>Pizza Quattro Stagioni</td>
+                    <td>Il tratto distintivo della pizza Quattro Stagioni è quello di essere divisa in quattro spicchi che rappresentano le quattro stagioni, ogni spicchio è farcito con ingredienti diversi, la versione più classica prevede uno spicchio con prosciutto cotto, uno con olive nere, un altro con carciofini sott'olio e l'ultimo con i funghi. </td>
+                    <td>€ 9,00</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>
+                        <img src="~/img/pizza-vegetariana.jpg" alt="Immagine pizza vegetariana" />
+                    </td>
+                    <td>Pizza Vegetariana</td>
+                    <td>La pizza Vegetariana è una delle più apprezzate, perché la prepariamo con le primizie dell’orto come i peperoni, le melanzane e le zucchine, che prima grigliamo leggermente, e poi finiamo di cuocere insieme alla pizza nel forno a legna.</td>
+                    <td>€ 8,50</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>
+                        <img src="~/img/pizza_diavola.jpg" alt="Immagine pizza diavola" />
+                    </td>
+                    <td>Pizza Diavola</td>
+                    <td>La pizza diavola è una delle pizze più gustose, nonostante la semplicità dei suoi ingredienti. Questa specialità viene servita con salamino piccante e mozzarella.Con il suo sapore deciso e filante è perfetta in tutte le stagioni.</td>
+                    <td>€ 8,50</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>
+                        <img src="~/img/pizza_formaggi.jpg" alt="Immagine pizza quattro formaggi" />
+                    </td>
+                    <td>Pizza Quatttro Formaggi</td>
+                    <td>La pizza ai quattro formaggi è una varietà di pizza che viene condita con quattro tipi di formaggio, molto gustosa e dal gusto intenso.</td>
+                    <td>€ 8,50</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>
+                        <img src="~/img/pizza-primavera.jpg" alt="Immagine pizza primavera" />
+                    </td>
+                    <td>Pizza Primavera</td>
+                    <td>La Pizza primavera è una variante di pizza, fresca, buona pronta da mangiare anche fredda se si vuole, per una variante della pizza classica.</td>
+                    <td>€ 7,50</td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>
+                        <img src="~/img/pizza-salsiccia-funghi.jpg" alt="Immagine pizza funghi porcini e sasiccia" />
+                    </td>
+                    <td>Pizza Funghi Porcini e Salsiccia</td>
+                    <td>La sua farcitura è eccezionalmente ricca e saporita grazie alla salsa di pomodoro, mozzarella, funghi trifolati e salsiccia!.</td>
+                    <td>€ 9,00</td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>
+                        <img src="~/img/pizza-wurstel-e-patatine.jpg" alt="Immagine pizza wurstel e patatine" />
+                    </td>
+                    <td>Pizza Wurstel e Patatine</td>
+                    <td>Una soffice pasta extra sottile abbraccia tutto il gusto di questa pizza sfiziosa e irresistibile ricca di farcitura con salsa di pomodoro, mozzarella fresca filante, patatine fritte e Wurstel a rondelle.</td>
+                    <td>€ 8,00</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
