@@ -72,6 +72,10 @@ namespace la_mia_pizzeria_static.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Pizza newPizza)
         {
+            if (newPizza.Image == null)
+            {
+                newPizza.Image = "/img/default.jpg";
+            }
             if (!ModelState.IsValid)
             {
                 return View("Create", newPizza);
