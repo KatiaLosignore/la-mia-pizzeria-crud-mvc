@@ -17,6 +17,8 @@ namespace la_mia_pizzeria_static.Models
         [MaxLength(500)]
         public string Image { get; set; }
 
+        public Pizza() { }
+        
         public Pizza(string name, string description, float price, string image)
         {
             this.Name = name;
