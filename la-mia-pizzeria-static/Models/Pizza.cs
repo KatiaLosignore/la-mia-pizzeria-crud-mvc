@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using la_mia_pizzeria_static.Nuova_cartella3;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,6 +15,7 @@ namespace la_mia_pizzeria_static.Models
 
         [Column(TypeName = "text")]
         [Required(ErrorMessage = "La descrizione della pizza è obbligatoria!")]
+        [MoreThanFiveWords]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Il prezzo della pizza è obbligatorio!")]
