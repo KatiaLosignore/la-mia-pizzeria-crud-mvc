@@ -20,6 +20,9 @@
 
             <h1 class="py-4 fw-bold">La mia pizzeria</h1>
 
+            <a class="btn btn-info btn-sm mb-3 border-2 border-dark" href="@Url.Action("Create", "Pizza")">
+                <b>Crea nuova pizza</b>
+            </a>
             <table class="table bg-light">
                 <thead>
                     <tr class="mt-5">
@@ -43,11 +46,8 @@
                             <th scope="col"> € @pizza.Price.ToString("0.00") </th>
                             <td class="d-flex justify-content-center align-items-center">
                                 <a class="btn btn-info btn-sm me-2" href="@Url.Action("Details", "Pizza", new { id = pizza.Id })">
-                                    <b>Dettaglio pizza</b>
-                                </a>
-                                <a class="btn btn-info btn-sm" href="@Url.Action("Create", "Pizza", new { id = pizza.Id })">
-                                    <b>Crea pizza</b>
-                                </a> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                </a>              
                              </td>                         
                         </tr>
                     }

@@ -22,7 +22,6 @@ namespace la_mia_pizzeria_static.Models
 
         [MaxLength(500, ErrorMessage = "La massima lunghezza del link è di 500 caratteri")]
         [Url(ErrorMessage = "Inserisci un url valido")]
-        [DefaultValue("/img/default.jpg")]
         public string Image { get; set; }
 
         public Pizza() { }
