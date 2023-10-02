@@ -1,4 +1,5 @@
 ﻿using la_mia_pizzeria_static.Nuova_cartella3;
+using la_mia_pizzeria_static.ValidationAttributes;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,7 +24,8 @@ namespace la_mia_pizzeria_static.Models
         public float Price { get; set; }
 
         [MaxLength(500, ErrorMessage = "La massima lunghezza del link è di 500 caratteri")]
-        [Url(ErrorMessage = "Inserisci un url valido")]
+        [ValidImagePath(ErrorMessage = "Percorso immagine non valido.")]
+      
         public string Image { get; set; }
 
         public Pizza() { }
