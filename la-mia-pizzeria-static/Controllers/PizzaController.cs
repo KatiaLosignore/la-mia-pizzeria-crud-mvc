@@ -61,5 +61,29 @@ namespace la_mia_pizzeria_static.Controllers
                 }
             }
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View("Create");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Pizza newPizza)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Create", newPizza);
+            }
+
+            using (PizzaContext db = new PizzaContext())
+            {
+                db.Pizzas.Add(newPizza);
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+        }
     }
 }
