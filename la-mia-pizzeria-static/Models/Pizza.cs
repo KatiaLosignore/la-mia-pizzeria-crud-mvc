@@ -24,8 +24,8 @@ namespace la_mia_pizzeria_static.Models
         public float Price { get; set; }
 
         [MaxLength(500, ErrorMessage = "La massima lunghezza del link è di 500 caratteri")]
+        [Required(ErrorMessage = "L'inserimento dell'immagine è obbligatoria!")]
         [ValidImagePath(ErrorMessage = "Percorso immagine non valido.")]
-      
         public string Image { get; set; }
 
         public Pizza() { }
