@@ -7,9 +7,13 @@
 
 body {
     background-color: lightgray;
-    height: calc(100vh - 90px);
+    height: 100vh;
 }
 
+
+main {
+    height: 100%;
+}
 
 h1 {
     color: blue;
@@ -25,11 +29,10 @@ ul li {
 }
 
 
-footer {
+footer{
     background-color: gray;
-    color: white;
     height: 90px;
-    
+    width: 100%; 
 }
 
 footer img {
