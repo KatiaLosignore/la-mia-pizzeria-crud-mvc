@@ -44,31 +44,9 @@ namespace la_mia_pizzeria_static.Controllers
 
         }
 
-        public IActionResult UserIndex()
-        {
-            _myLogger.WriteLog("L'utente è arrivato sulla pagina Pizza > UserIndex");
+     
 
-            List<Pizza> pizzas = _myDatabase.Pizzas.ToList<Pizza>();
-
-            return View("UserIndex", pizzas);
-
-        }
-
-        public IActionResult DetailsUser(int id)
-        {
-
-            Pizza? foundedElement = _myDatabase.Pizzas.Where(element => element.Id == id).FirstOrDefault();
-
-            if (foundedElement == null)
-            {
-                return NotFound($"La pizza con {id} non è stata trovata!");
-            }
-            else
-            {
-                return View("DetailsUser", foundedElement);
-            }
-
-        }
+       
 
         [HttpGet]
         public IActionResult Create()

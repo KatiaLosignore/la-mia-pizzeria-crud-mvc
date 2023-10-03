@@ -1,4 +1,6 @@
-﻿using la_mia_pizzeria_static.Models;
+﻿using la_mia_pizzeria_static.CustomLoggers;
+using la_mia_pizzeria_static.Database;
+using la_mia_pizzeria_static.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,27 +8,55 @@ namespace la_mia_pizzeria_static.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private ICustomLogger _myLogger;
+        private PizzaContext _myDatabase;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(PizzaContext db, ICustomLogger logger)
         {
-            _logger = logger;
+            _myLogger = logger;
+            _myDatabase = db;
         }
+
 
         public IActionResult Index()
         {
-            return View();
+            _myLogger.WriteLog("L'utente è arrivato sulla pagina Home > Index");
+
+            List<Pizza> pizzas = _myDatabase.Pizzas.ToList<Pizza>();
+
+            return View("Index", pizzas);
         }
+
+
+
+        public IActionResult Details(int id)
+        {
+
+            Pizza? foundedElement = _myDatabase.Pizzas.Where(element => element.Id == id).FirstOrDefault();
+
+            if (foundedElement == null)
+            {
+                return NotFound($"La pizza con {id} non è stata trovata!");
+            }
+            else
+            {
+                return View("Details", foundedElement);
+            }
+
+        }
+
 
         public IActionResult Privacy()
         {
             return View();
         }
 
-        public IActionResult UserIndex()
+        public IActionResult News()
         {
             return View();
         }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

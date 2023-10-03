@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="~/css/mystyleuser.css" />
 }
 
-
 @model Pizza
 
 <div class="container text-center detail-pizza py-4 rounded-5">
@@ -31,7 +30,7 @@
                 <strong>Prezzo:</strong>
                 € @Model.Price.ToString("0.00")
             </p>
-            <a class="btn btn-danger" href="@Url.Action("UserIndex", "Pizza")" role="button">
+            <a class="btn btn-danger" href="@Url.Action("Index", "Home")" role="button">
                 <b>Torna Indietro</b>
             </a>
         </div>
