@@ -1,0 +1,47 @@
+﻿@model Pizza
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center">
+                <h1 class="mt-3 mb-3">Modifica pizza</h1>
+            </div>
+            <form asp-controller="Pizza" asp-action="Update" asp-route-id="@Model.Id" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="Id" />    
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"><b>Nome:</b> </label>
+                    <div>
+                        <input asp-for="Name" class="d-block w-100" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label"><b>Descrizione:</b> </label>
+                    <div>
+                        <textarea asp-for="Description" rows="10" class="d-block w-100"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Price" class="form-label"><b>Prezzo:</b> </label>
+                    <div>
+                        <input asp-for="Price" class="d-block w-100" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Image" class="form-label"><b>Immagine:</b> </label>
+                    <div>
+                        <input asp-for="Image" class="d-block w-100" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="text-end">
+                    <input type="submit" class="btn btn-small btn-success" value="Aggiorna Pizza">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
