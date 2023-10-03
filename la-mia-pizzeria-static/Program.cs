@@ -1,7 +1,15 @@
+using la_mia_pizzeria_static.CustomLoggers;
+using la_mia_pizzeria_static.Database;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+// Righe scritte nel live coding (Argomento Dependency Injection)
+builder.Services.AddScoped<ICustomLogger, CustomFileLogger>();
+builder.Services.AddScoped<PizzaContext, PizzaContext>();
 
 var app = builder.Build();
 
