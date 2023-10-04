@@ -11,36 +11,52 @@ body {
 }
 
 header {
-    height: 90px;
+    height: 100px;
+}
+
+.container {
+    max-width: 1600px;
 }
 
 main {
-    height: calc(100% - 90px - 90px);
+    height: calc(100% - 100px - 115px);
 }
 
+.logo {
+    width: 40px;
+    cursor: pointer;
+}
+
+.table {
+    --bs-table-bg: none;
+}
 
 h1 {
     color: blue;
 }
 
 main img {
-    max-width: 200px;
+    width: 300px;
     display: block;
+    border-radius: 15px;
 }
 
 ul li {
     font-weight: bold;
 }
 
-
-footer{
-    background-color: gray;
-    height: 90px;
-    width: 100%; 
+table tbody, td, tfoot, th, thead, tr {
+    border-style: unset;
+    border-color: white;
 }
 
-footer img {
+footer {
+    height: 115px;
+    background-color: rgb(248,249,250);
+}
+
+footer .logo-footer {
     border-radius: 50%;
+    width: 40px;
 }
-
 
