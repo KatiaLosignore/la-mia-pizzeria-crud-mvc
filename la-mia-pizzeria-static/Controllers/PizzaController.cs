@@ -1,6 +1,7 @@
 ﻿using la_mia_pizzeria_static.CustomLoggers;
 using la_mia_pizzeria_static.Database;
 using la_mia_pizzeria_static.Models;
+using la_mia_pizzeria_static.Models.Database_Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace la_mia_pizzeria_static.Controllers
@@ -44,15 +45,19 @@ namespace la_mia_pizzeria_static.Controllers
 
         }
 
-     
-
-       
+ 
 
         [HttpGet]
         public IActionResult Create()
         {
-            return View("Create");
+            List<Category> categories = _myDatabase.Categories.ToList();
+
+            PizzaFormModel model =
+                new PizzaFormModel { Pizza = new Pizza(), Categories = categories };
+
+            return View("Create", model);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
