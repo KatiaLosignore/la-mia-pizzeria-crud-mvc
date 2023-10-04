@@ -108,22 +108,24 @@ namespace la_mia_pizzeria_static.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(int id, Pizza modifiedPizza)
+        public IActionResult Update(int id, PizzaFormModel data)
         {
             if (!ModelState.IsValid)
             {
-                return View("Update", modifiedPizza);
+                List<Category> categories = _myDatabase.Categories.ToList();
+                data.Categories = categories;
+                return View("Update", data);
             }
 
-            
                 Pizza? pizzaToUpdate = _myDatabase.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
 
                 if (pizzaToUpdate != null)
                 {
-                    pizzaToUpdate.Name = modifiedPizza.Name;
-                    pizzaToUpdate.Description = modifiedPizza.Description;
-                    pizzaToUpdate.Price = modifiedPizza.Price;
-                    pizzaToUpdate.Image = modifiedPizza.Image;
+                    pizzaToUpdate.Name = data.Pizza.Name;
+                    pizzaToUpdate.Description = data.Pizza.Description;
+                    pizzaToUpdate.Price = data.Pizza.Price;
+                    pizzaToUpdate.Image = data.Pizza.Image;
+                    pizzaToUpdate.CategoryId = data.Pizza.CategoryId;
 
                    _myDatabase.SaveChanges();
 
