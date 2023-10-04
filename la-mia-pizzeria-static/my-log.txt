@@ -317,3 +317,9 @@
 04-10-2023 11:48:19 LOG: L'utente è arrivato sulla pagina Pizza > Index
 04-10-2023 11:48:26 LOG: L'utente è arrivato sulla pagina Pizza > Index
 04-10-2023 12:30:04 LOG: L'utente è arrivato sulla pagina Pizza > Index
+04-10-2023 12:47:25 LOG: L'utente è arrivato sulla pagina Pizza > Index
+04-10-2023 12:47:34 LOG: L'utente è arrivato sulla pagina Pizza > Index
+04-10-2023 12:47:43 LOG: L'utente è arrivato sulla pagina Pizza > Index
+04-10-2023 12:48:38 LOG: L'utente è arrivato sulla pagina Pizza > Index
+04-10-2023 12:48:52 LOG: L'utente è arrivato sulla pagina Pizza > Index
+04-10-2023 12:48:59 LOG: L'utente è arrivato sulla pagina Pizza > Index

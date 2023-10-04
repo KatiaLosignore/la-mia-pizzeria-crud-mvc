@@ -19,6 +19,17 @@
                 @Model.Description
             </p>
             <p>
+                <strong>Categoria:</strong>
+                @if (Model.Category != null)
+                {
+                    <span>@Model.Category.Title</span>
+                }
+                else
+                {
+                    <span>Nessuna categoria associata</span>
+                }
+            </p>
+            <p>
                 <strong>Prezzo:</strong>
                € @Model.Price.ToString("0.00")
             </p>
