@@ -47,7 +47,6 @@ namespace la_mia_pizzeria_static.Controllers
         }
 
  
-
         [HttpGet]
         public IActionResult Create()
         {
@@ -97,7 +96,12 @@ namespace la_mia_pizzeria_static.Controllers
                 }
                 else
                 {
-                    return View("Update", pizzaToEdit);
+                    List<Category> categories = _myDatabase.Categories.ToList();
+
+                        PizzaFormModel model
+                        = new PizzaFormModel { Pizza = pizzaToEdit, Categories = categories };
+
+                    return View("Update", model);   
                 }
             
         }
