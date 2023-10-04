@@ -1,4 +1,5 @@
-﻿using la_mia_pizzeria_static.Nuova_cartella3;
+﻿using la_mia_pizzeria_static.Models.Database_Models;
+using la_mia_pizzeria_static.Nuova_cartella3;
 using la_mia_pizzeria_static.ValidationAttributes;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -27,6 +28,14 @@ namespace la_mia_pizzeria_static.Models
         [Required(ErrorMessage = "L'inserimento dell'immagine è obbligatoria!")]
         [ValidImagePath(ErrorMessage = "Percorso immagine non valido.")]
         public string Image { get; set; }
+
+
+
+        // Creo la relazione 1:N con la categoria
+        public int? CategoryId { get; set; }
+        public Category? Category { get; set; }
+
+
 
         public Pizza() { }
         
