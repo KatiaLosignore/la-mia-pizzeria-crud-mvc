@@ -1,15 +1,16 @@
 ﻿* {
     box-sizing: border-box;
-   
-    padding: 0;
 }
 
 body {
     background-image: url('/img/background.jpg');
     background-position: initial;
     background-repeat: no-repeat;
-    margin-top: 60px;
+    background-size: cover;
+    height: 100vh;
+    padding-top: 10px;
 }
+
 
 .album {
     background-color: rgb(255,206,85);
