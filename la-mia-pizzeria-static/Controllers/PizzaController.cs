@@ -3,6 +3,7 @@ using la_mia_pizzeria_static.Database;
 using la_mia_pizzeria_static.Models;
 using la_mia_pizzeria_static.Models.Database_Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace la_mia_pizzeria_static.Controllers
 {
@@ -32,7 +33,7 @@ namespace la_mia_pizzeria_static.Controllers
 
         public IActionResult Details(int id)
         {
-            Pizza? foundedElement = _myDatabase.Pizzas.Where(element => element.Id == id).FirstOrDefault();
+            Pizza? foundedElement = _myDatabase.Pizzas.Where(element => element.Id == id).Include(pizza => pizza.Category).FirstOrDefault();
 
             if (foundedElement == null)
             {
