@@ -330,3 +330,7 @@
 04-10-2023 12:52:26 LOG: L'utente è arrivato sulla pagina Pizza > Index
 04-10-2023 12:52:30 LOG: L'utente è arrivato sulla pagina Pizza > Index
 04-10-2023 12:53:16 LOG: L'utente è arrivato sulla pagina Pizza > Index
+04-10-2023 13:10:31 LOG: L'utente è arrivato sulla pagina Pizza > Index
+04-10-2023 13:10:34 LOG: L'utente è arrivato sulla pagina Pizza > Index
+04-10-2023 13:10:42 LOG: L'utente è arrivato sulla pagina Pizza > Index
+04-10-2023 13:10:52 LOG: L'utente è arrivato sulla pagina Pizza > Index
