@@ -61,19 +61,22 @@ namespace la_mia_pizzeria_static.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Pizza newPizza)
+        public IActionResult Create(PizzaFormModel newPizza)
         {
-            if (newPizza.Image == null)
+            if (newPizza.Pizza.Image == null)
             {
-                newPizza.Image = "/img/default.jpg";
+                newPizza.Pizza.Image = "/img/default.jpg";
             }
             if (!ModelState.IsValid)
             {
+                List<Category> categories = _myDatabase.Categories.ToList();
+                newPizza.Categories = categories;
+
                 return View("Create", newPizza);
             }
 
 
-            _myDatabase.Pizzas.Add(newPizza);
+            _myDatabase.Pizzas.Add(newPizza.Pizza);
             _myDatabase.SaveChanges();
 
             return RedirectToAction("Index");
