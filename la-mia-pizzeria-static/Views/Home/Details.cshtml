@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="~/css/mystyleuser.css" />
 }
 
+
+@using la_mia_pizzeria_static.Models.Database_Models;
+
 @model Pizza
 
 <div class="container text-center detail-pizza py-4 rounded-5">
@@ -29,6 +32,22 @@
             <p>
                 <strong>Descrizione:</strong>
                 @Model.Description
+            </p>
+            <p>
+                <strong>Ingredienti:</strong>
+                @if (Model.Ingredients != null && Model.Ingredients.Count > 0)
+                {
+                    <div class"text-start">
+                        @foreach (Ingredient ingredient in Model.Ingredients)
+                        {
+                            <p> @ingredient.Title</p>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <span> Non hai ancora ingredienti associati!</span>
+                }
             </p>
             <p>
                 <strong>Prezzo:</strong>
