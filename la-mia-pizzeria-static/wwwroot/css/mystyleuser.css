@@ -21,7 +21,11 @@ body {
 }
 
 .card {
-    height: 600px;
+    height: 690px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .card-pizza {
