@@ -1,11 +1,20 @@
-﻿@using la_mia_pizzeria_static.Models.Database_Models;
+﻿@{
+    Layout = "_Layout";
+}
+
+@section Style{
+    <link rel="stylesheet" href="~/css/mystyle.css" />
+}
+
+
+@using la_mia_pizzeria_static.Models.Database_Models;
 
 @model PizzaFormModel
 
 <div class="container form-group">
     <div class="row">
         <div class="col-12">
-            <h1 class="my-4">Pagina creazione nuova Pizza</h1>
+            <h1 class="mt-5 mb-4">Pagina creazione nuova Pizza</h1>
         </div>
         <form asp-controller="Pizza" asp-action="Create" method="post">
             @Html.AntiForgeryToken()
@@ -61,8 +70,10 @@
                 </div>
 
             </div>
-            <button type="submit" class="btn btn-primary mt-4 mb-5"><b>Crea nuova pizza</b></button>
-            <div class="tend-start">
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary mt-4 mb-5 "><b>Crea nuova pizza</b></button> 
+            </div>
+            <div class="mt-5">
                 <a class="btn btn-secondary" href="@Url.Action("Index", "Pizza")" role="button">
                     <b>Torna Indietro</b>
                 </a>
