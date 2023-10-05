@@ -2,6 +2,7 @@
 using la_mia_pizzeria_static.Database;
 using la_mia_pizzeria_static.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace la_mia_pizzeria_static.Controllers
@@ -22,7 +23,7 @@ namespace la_mia_pizzeria_static.Controllers
         {
             _myLogger.WriteLog("L'utente è arrivato sulla pagina Home > Index");
 
-            List<Pizza> pizzas = _myDatabase.Pizzas.ToList<Pizza>();
+            List<Pizza> pizzas = _myDatabase.Pizzas.Include(pizza => pizza.Category).ToList<Pizza>();
 
             return View("Index", pizzas);
         }
@@ -32,7 +33,7 @@ namespace la_mia_pizzeria_static.Controllers
         public IActionResult Details(int id)
         {
 
-            Pizza? foundedElement = _myDatabase.Pizzas.Where(element => element.Id == id).FirstOrDefault();
+            Pizza? foundedElement = _myDatabase.Pizzas.Where(element => element.Id == id).Include(pizza => pizza.Category).FirstOrDefault();
 
             if (foundedElement == null)
             {

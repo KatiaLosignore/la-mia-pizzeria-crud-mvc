@@ -1,4 +1,5 @@
-﻿using la_mia_pizzeria_static.Models.Database_Models;
+﻿using Azure;
+using la_mia_pizzeria_static.Models.Database_Models;
 using la_mia_pizzeria_static.Nuova_cartella3;
 using la_mia_pizzeria_static.ValidationAttributes;
 using System.ComponentModel;
@@ -31,9 +32,13 @@ namespace la_mia_pizzeria_static.Models
 
 
 
-        // Creo la relazione 1:N con la categoria
+        // Creo la relazione 1:N con la classe Category
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }
+
+
+        // creo la relazione N a N con la classe Ingredient
+        public List<Ingredient>? Ingredients { get; set; }
 
 
 

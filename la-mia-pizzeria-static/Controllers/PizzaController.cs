@@ -25,7 +25,7 @@ namespace la_mia_pizzeria_static.Controllers
             _myLogger.WriteLog("L'utente è arrivato sulla pagina Pizza > Index");
 
 
-            List<Pizza> pizzas = _myDatabase.Pizzas.ToList<Pizza>();
+            List<Pizza> pizzas = _myDatabase.Pizzas.Include(pizza => pizza.Category).ToList<Pizza>();
 
             return View("Index", pizzas);
 

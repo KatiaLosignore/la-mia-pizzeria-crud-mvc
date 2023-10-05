@@ -8,8 +8,9 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    padding-top: 10px;
+    margin-top: 10px;
 }
+
 
 
 .album {
