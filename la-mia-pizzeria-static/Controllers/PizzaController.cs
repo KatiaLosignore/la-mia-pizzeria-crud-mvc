@@ -135,7 +135,7 @@ namespace la_mia_pizzeria_static.Controllers
         public IActionResult Update(int id)
         {
             
-                Pizza? pizzaToEdit = _myDatabase.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
+                Pizza? pizzaToEdit = _myDatabase.Pizzas.Where(pizza => pizza.Id == id).Include(pizza => pizza.Ingredients).FirstOrDefault();
 
                 if (pizzaToEdit == null)
                 {
@@ -145,10 +145,25 @@ namespace la_mia_pizzeria_static.Controllers
                 {
                     List<Category> categories = _myDatabase.Categories.ToList();
 
-                        PizzaFormModel model
-                        = new PizzaFormModel { Pizza = pizzaToEdit, Categories = categories };
+                    List<SelectListItem> selectListItem = new List<SelectListItem>();
+                    List<Ingredient> dbingredientList = _myDatabase.Ingredients.ToList();
+
+                    foreach (Ingredient ingredient in dbingredientList)
+                    {
+                        selectListItem.Add(new SelectListItem
+                        {
+                            Value = ingredient.Id.ToString(),
+                            Text = ingredient.Title,
+                            Selected = pizzaToEdit.Ingredients.Any(ingredAssociated => ingredAssociated.Id == ingredient.Id)
+                        });
+
+                    }
+
+                    PizzaFormModel model
+                      = new PizzaFormModel { Pizza = pizzaToEdit, Categories = categories, Ingredients = selectListItem };
 
                     return View("Update", model);   
+
                 }
             
         }
