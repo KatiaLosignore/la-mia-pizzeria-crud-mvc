@@ -1,8 +1,10 @@
-﻿using la_mia_pizzeria_static.CustomLoggers;
+﻿using Azure;
+using la_mia_pizzeria_static.CustomLoggers;
 using la_mia_pizzeria_static.Database;
 using la_mia_pizzeria_static.Models;
 using la_mia_pizzeria_static.Models.Database_Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace la_mia_pizzeria_static.Controllers
@@ -52,8 +54,21 @@ namespace la_mia_pizzeria_static.Controllers
         {
             List<Category> categories = _myDatabase.Categories.ToList();
 
+            List<SelectListItem> allIngredientsSelectList = new List<SelectListItem>();
+            List<Ingredient> databaseAllIngredients = _myDatabase.Ingredients.ToList();
+
+            foreach (Ingredient ingredient in databaseAllIngredients)
+            {
+                allIngredientsSelectList.Add(
+                    new SelectListItem
+                    {
+                        Text = ingredient.Title,
+                        Value = ingredient.Id.ToString()
+                    });
+            }
+
             PizzaFormModel model =
-                new PizzaFormModel { Pizza = new Pizza(), Categories = categories };
+                new PizzaFormModel { Pizza = new Pizza(), Categories = categories, Ingredients = allIngredientsSelectList };
 
             return View("Create", model);
         }
