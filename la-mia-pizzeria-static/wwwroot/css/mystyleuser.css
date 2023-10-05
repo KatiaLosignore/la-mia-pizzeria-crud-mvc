@@ -5,8 +5,9 @@
 body {
     background-image: url('/img/background.jpg');
     background-position: initial;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /*background-repeat: no-repeat; */
+    /*background-size: cover; */
+    background-repeat: repeat;
     height: 100vh;
     margin-top: 10px;
 }
