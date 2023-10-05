@@ -87,7 +87,39 @@ namespace la_mia_pizzeria_static.Controllers
                 List<Category> categories = _myDatabase.Categories.ToList();
                 newPizza.Categories = categories;
 
+                List<SelectListItem> allIngredientsSelectList = new List<SelectListItem>();
+                List<Ingredient> databaseAllIngredients = _myDatabase.Ingredients.ToList();
+
+                foreach (Ingredient ingredient in databaseAllIngredients)
+                {
+                    allIngredientsSelectList.Add(
+                        new SelectListItem
+                        {
+                            Text = ingredient.Title,
+                            Value = ingredient.Id.ToString()
+                        });
+                }
+
+                newPizza.Ingredients = allIngredientsSelectList;
+
                 return View("Create", newPizza);
+            }
+
+            newPizza.Pizza.Ingredients = new List<Ingredient>();
+
+            if (newPizza.SelectedIngredientsId != null)
+            {
+                foreach (string ingredientSelectedId in newPizza.SelectedIngredientsId)
+                {
+                    int intIngredientSelectedId = int.Parse(ingredientSelectedId);
+
+                    Ingredient? ingredientInDb = _myDatabase.Ingredients.Where(ingredient => ingredient.Id == intIngredientSelectedId).FirstOrDefault();
+
+                    if (ingredientInDb != null)
+                    {
+                        newPizza.Pizza.Ingredients.Add(ingredientInDb);
+                    }
+                }
             }
 
 
