@@ -176,30 +176,65 @@ namespace la_mia_pizzeria_static.Controllers
             {
                 List<Category> categories = _myDatabase.Categories.ToList();
                 data.Categories = categories;
+
+                List<SelectListItem> selectListItem = new List<SelectListItem>();
+                List<Ingredient> dbIngredientList = _myDatabase.Ingredients.ToList();
+
+                foreach (Ingredient ingredient in dbIngredientList)
+                {
+                    selectListItem.Add(new SelectListItem
+                    {
+                        Value = ingredient.Id.ToString(),
+                        Text = ingredient.Title
+                    });
+                }
+
+                data.Ingredients = selectListItem;
+
+
                 return View("Update", data);
             }
 
-                Pizza? pizzaToUpdate = _myDatabase.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
+                Pizza? pizzaToUpdate = _myDatabase.Pizzas.Where(pizza => pizza.Id == id).Include(pizza => pizza.Ingredients).FirstOrDefault();
 
                 if (pizzaToUpdate != null)
                 {
+                    pizzaToUpdate.Ingredients.Clear();
+
                     pizzaToUpdate.Name = data.Pizza.Name;
                     pizzaToUpdate.Description = data.Pizza.Description;
                     pizzaToUpdate.Price = data.Pizza.Price;
                     pizzaToUpdate.Image = data.Pizza.Image;
                     pizzaToUpdate.CategoryId = data.Pizza.CategoryId;
 
-                   _myDatabase.SaveChanges();
+
+                if (data.SelectedIngredientsId != null)
+                {
+                    foreach (string ingredientSelectedId in data.SelectedIngredientsId)
+                    {
+                        int intIngredientSelectedId = int.Parse(ingredientSelectedId);
+
+                        Ingredient? ingredientInDb = _myDatabase.Ingredients.Where(ingred => ingred.Id == intIngredientSelectedId).FirstOrDefault();
+
+                        if (ingredientInDb != null)
+                        {
+                            pizzaToUpdate.Ingredients.Add(ingredientInDb);
+                        }
+                    }
+                }
+
+                _myDatabase.SaveChanges();
 
                     return RedirectToAction("Details", "Pizza", new { id = pizzaToUpdate.Id });
                 }
                 else
                 {
                     return NotFound("Mi dispiace non è stata trovata la pizza da aggiornare");
-                }
-            
+                }        
 
         }
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
