@@ -50,7 +50,7 @@ namespace la_mia_pizzeria_static.Controllers
 
         }
 
- 
+        [Authorize(Roles = "ADMIN")]
         [HttpGet]
         public IActionResult Create()
         {
@@ -75,7 +75,7 @@ namespace la_mia_pizzeria_static.Controllers
             return View("Create", model);
         }
 
-
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(PizzaFormModel newPizza)
@@ -133,6 +133,7 @@ namespace la_mia_pizzeria_static.Controllers
         }
 
 
+        [Authorize(Roles = "ADMIN")]
         [HttpGet]
         public IActionResult Update(int id)
         {
@@ -170,6 +171,8 @@ namespace la_mia_pizzeria_static.Controllers
             
         }
 
+
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Update(int id, PizzaFormModel data)
@@ -237,7 +240,7 @@ namespace la_mia_pizzeria_static.Controllers
         }
 
 
-
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
