@@ -23,7 +23,7 @@ namespace la_mia_pizzeria_static.Controllers
             _myDatabase = db;
         }
 
-
+        
         public IActionResult Index()
         {
             _myLogger.WriteLog("L'utente è arrivato sulla pagina Pizza > Index");
@@ -35,6 +35,7 @@ namespace la_mia_pizzeria_static.Controllers
 
         }
 
+       
         public IActionResult Details(int id)
         {
             Pizza? foundedElement = _myDatabase.Pizzas.Where(element => element.Id == id).Include(pizza => pizza.Category).Include(pizza => pizza.Ingredients).FirstOrDefault();
