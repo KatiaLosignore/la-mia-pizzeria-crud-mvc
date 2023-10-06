@@ -993,3 +993,8 @@
 06-10-2023 13:16:39 LOG: L'utente è arrivato sulla pagina Pizza > Index
 06-10-2023 13:16:41 LOG: L'utente è arrivato sulla pagina Home > Index
 06-10-2023 13:16:50 LOG: L'utente è arrivato sulla pagina Pizza > Index
+06-10-2023 14:35:55 LOG: L'utente è arrivato sulla pagina Pizza > Index
+06-10-2023 14:35:57 LOG: L'utente è arrivato sulla pagina Pizza > Index
+06-10-2023 14:35:59 LOG: L'utente è arrivato sulla pagina Home > Index
+06-10-2023 14:36:01 LOG: L'utente è arrivato sulla pagina Pizza > Index
+06-10-2023 14:37:43 LOG: L'utente è arrivato sulla pagina Pizza > Index
