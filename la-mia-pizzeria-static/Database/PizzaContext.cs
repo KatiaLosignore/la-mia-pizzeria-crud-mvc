@@ -1,11 +1,13 @@
 ﻿using Azure;
 using la_mia_pizzeria_static.Models;
 using la_mia_pizzeria_static.Models.Database_Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace la_mia_pizzeria_static.Database
 {
-    public class PizzaContext : DbContext
+    public class PizzaContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<Pizza> Pizzas { get; set; }
         public DbSet<Category> Categories { get; set; }
