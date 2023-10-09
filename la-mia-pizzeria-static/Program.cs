@@ -19,6 +19,7 @@ builder.Services.AddControllersWithViews();
 // Righe scritte nel live coding (Argomento Dependency Injection)
 builder.Services.AddScoped<ICustomLogger, CustomFileLogger>();
 builder.Services.AddScoped<PizzaContext, PizzaContext>();
+builder.Services.AddApplicationInsightsTelemetry();
 
 var app = builder.Build();
 
